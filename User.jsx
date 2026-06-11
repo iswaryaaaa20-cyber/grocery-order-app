@@ -1,11 +1,25 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function User() {
+  const navigate=useNavigate()
     const [value,setvalue]=useState({
       username:"",
       email:"",
       Password:""
     })
+    function handlechange(e){
+         setvalue({...value,[e.target.name]:e.target.value})
+    }
+    function handlelogin(){
+      if(value.name=="iswarya"&&value.email=="ishu@gmail.com"&&value.password==2004){
+        navigate("/userhomepage")
+
+      }
+      else{
+        alert("invalid username or email or password")
+      }
+    }
     
   return (
     <>
